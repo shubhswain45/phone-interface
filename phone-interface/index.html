@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHONE UI IMPLEMENTATION</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="layout">
+        <div class="punchhole">
+        </div>
+       <div class="lockscreen">
+            <div class="lockscreen_wallpaper">
+                <img src="https://wallpapercg.com/download/motorola-edge-40--14911.jpg" alt="">
+            </div>
+            <div class="lockscreen_date">
+                <p></p>
+            </div>
+            <div class="lockscreen_time">
+                <h2 class="hour"></h2>
+                <h2 class="minute"></h2>
+            </div>
+            <div class="lockscreen_lockicon">
+                <i class="ri-lock-line"></i>
+            </div>
+        </div>
+        <div class="lockscreen_passwordscreen none">
+            <div class="lockscreen_passwordscreen_password">
+                    <input type="password">
+                </div>
+                <div class="lockscreen_passwordscreen_unlockBTN">
+                    <button>Unlock</button>
+                </div>
+                <div class="lockscreen_downarrow">
+                    <i class="ri-arrow-down-s-line"></i>
+                </div>
+                <div class="errormsg none">
+                    <h3>Wrong password</h3>
+                </div>
+            </div>
+            
+            <div class="homescreen none">
+                <div class="homescreen_wallpaper">
+                    <img src="https://wallpapercg.com/download/motorola-edge-40--14911.jpg" alt="">
+                </div>
+
+                <div class="homescreen_icons">
+                    <div class="second-row">
+                            
+                    </div>
+                    <div class="first-row">
+                        <i id="secure-folder" class="fa-solid fa-folder-plus" draggable="true"></i>
+                        <i id="music" class="fa-solid fa-headphones" draggable="true"></i>
+                        <i id="calculator" class="ri-calculator-line" draggable="true"></i>
+                        <i id="moto" class="fa-solid fa-yin-yang" draggable="true"></i>
+                    </div>
+                    <i id="call" class="fa-solid fa-phone" draggable="true"></i>
+                    <i id="setting" class="fa-solid fa-gear" draggable="true"></i>
+                    <i id="gallary" class="fa-solid fa-image" draggable="true"></i>
+                    <i id="camera" class="fa-solid fa-camera" draggable="true"></i>
+                    
+                    <div class="setting_window none">
+                        
+                        <i id="setting" class="fa-solid fa-gear" draggable="true"></i>
+                    </div>
+                    <div class="setting_window_adv none">
+                        <div class="setting_window_adv_text">
+                            <h1>Settings</h1>
+                        </div>
+                        <div class="setting_window_adv_search">
+                            <div class="search">
+
+                                <i class="ri-search-line"></i>
+                                <input readonly="true" class="styled-input" type="text" placeholder="Search setting">
+                            </div>
+
+                            <div class="search_detail none">
+                                <div class="search2">
+                                    <i class="ri-arrow-left-line"></i>
+
+                                    <input onclick="handelOnClick()" class="styled-input2"type="text" placeholder="Search...">
+
+                                    
+                                    <ul>
+
+                                    </ul>
+                                </div>
+                                <div class="lists none">
+                                    <p>No result found</p>
+                                    <i class="fa-solid fa-face-frown"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setting_window_adv_feautures">
+                            <div id="Display">
+                                <div class="Display_text">
+                                    <h2>Display</h2>
+                                    </div>
+                                    <div class="Display_icon">
+                                        <i class="ri-sun-fill"></i>
+                                    </div>
+                                    <div class="Display-context">
+                                        <p>Dark theme,font size,brightness</p>
+                                    </div>
+                                </div>
+                                 
+
+                                <div id="Wallpaper">
+                                    <div class="Wallpaper_text">
+                                        <h2>Wallpaper</h2>
+                                    </div>
+                                    <div class="Wallpaper_icon">
+                                        <i class="ri-palette-line"></i>
+                                    </div>
+                                    <div class="Wallpaper-context">
+                                        <p>Home,lock screen</p>
+                                    </div>
+                                </div>
+
+                                
+
+                                <div id="Battery">
+                                    <div class="Battery_text">
+                                        <h2>Battery</h2>
+                                    </div>
+                                    <div class="Battery_icon">
+                                        <i class="ri-battery-2-fill"></i>
+                                    </div>
+                                    
+                                    <div class="Battery-context">
+                                        <p>Show battery %</p>
+                                    </div>
+                                </div>
+
+
+
+                                
+                                <div id="Password">
+                                    <div class="Password_text">
+                                        <h2>Password</h2>
+                                    </div>
+                                    <div class="Password_icon">
+                                        <i class="ri-lock-password-fill"></i>
+                                    </div>
+                                    
+                                    <div class="Password-context">
+                                        <p>Change password</p>
+                                    </div>
+                                </div>
+
+                                <div id="Special">
+                                    <div class="Special_text">
+                                        <h2>Special</h2>
+                                    </div>
+                                    <div class="Special_icon">
+                                        <i class="ri-star-fill"></i>
+                                    </div>
+                                    
+                                    <div class="Special-context">
+                                        <p>Special feature</p>
+                                    </div>
+                                </div>
+
+                                
+
+                                <div id="Update">
+                                    <div class="Update_text">
+                                        <h2>Update</h2>
+                                    </div>
+                                    <div class="Update_icon">
+                                        <i class="ri-loop-right-line"></i>
+                                    </div>
+
+                                    <div class="Update-context">
+                                        <p>Update your device</p>
+                                    </div>
+                                </div>
+
+
+                                
+                                <div id="About">
+                                    <div class="About_text">
+                                        <h2>About</h2>
+                                    </div>
+                                    <div class="About_icon">
+                                        <i class="ri-smartphone-fill"></i>
+                                    </div>
+
+                                    <div class="About-context">
+                                        <p>About your device</p>
+                                    </div>
+                                </div>
+
+                                
+                        </div>
+                        <div class="back_btn">
+
+                            <i class="ri-arrow-left-s-line"></i>
+                        </div>
+                        
+                        
+                        
+                        <div class="Display-detail none" id="Display1">
+                                <div class="Display-detail_back" id="Display1_back_btn">
+                                    <i class="ri-arrow-left-line"></i>
+                                </div>
+                                
+                                <div class="Display-detail_text">
+                                    <h2>Display</h2>
+                                </div>
+                                
+                                
+                                <div class="slider none">
+                                <div class="seekbar-lenght">
+                                    <div class="seekbar"></div>
+                                </div>
+                            </div>
+
+                            <div class="Display-detail_feature">
+                                <div class="Display-detail-brightness" id="Brightnesslevel2">
+                                    <p>Brightness level</p>
+                                    <p class="percentage">0%</p>
+                                </div>
+                                
+                                <div class="Display-detail_darkmode" id="Darktheme3">
+                                    <p>Dark theme</p>
+                                    <p>Dark</p>
+                                </div>
+                                <div class="toogle">
+                                    <div class="circle">
+
+                                    </div>
+                                </div>
+                                
+                                <div class="Display-detail_colors" id="Colours4">
+                                    <p>Colours</p>
+                                    <p>Natural</p>
+                                </div>
+                            </div>
+
+                            <div class="Display-detail_colors_adv none">
+                                <div class="Display-detail_colors_adv_back">
+                                    <i class="ri-arrow-left-line"></i>
+                                </div>
+                                
+                                <div class="Display-detail_colors_adv_text">
+                                    <h2>Colours</h2>
+                                </div>
+                                <div class="Display-detail_colors_adv_img">
+                                    <img src="https://bstatic.com/xdata/images/xphoto/1182x887/150934001.jpg?k=d4eee85e77253b8ce5d6cd7516cde326e603c0a6858e34e861acbde12ba3a0bd&o=?size=S" alt="">
+                                </div>
+                                <div class="Display-detail_colors_adv_img_options">
+                                    <div class="natural_option">
+                                        <p class="Nop"></p>
+                                        <p>Natural</p>
+                                        <div class="inner-circle none">
+                                            
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+
+
+                                
+                        </div>
+                        
+                        <div class="Wallpaper-detail none " id="Wallpaper5">
+                            <div class="Wallpaper-detail_back" id="Wallpaper5_back_btn">
+                                <i class="ri-arrow-left-line"></i>
+                            </div>
+                            <div class="Wallpaper-detail_text">
+                                <h2>Wallpaper</h2>
+                            </div>
+                            
+                            <div class="wallpaer-box">
+                                <img class="changeLockscreen" src="https://wallpapercg.com/media/ts_orig/14911.webp" alt="">
+                                <img class="changeHomescreen" src="https://wallpapercg.com/media/ts_orig/14911.webp" alt="">
+                                <div class="twoText">
+                                    
+                                    <p class="first">Lock scren</p>
+                                    <p class="second">Home scren</p>
+                                </div>
+                            </div>
+                            <div class="wallpaer-dynamic" id="Dynamic6">
+                                <img src="https://www.ytechb.com/wp-content/uploads/2023/01/Moto-X40-wallpaper-1-YTECHB.webp" alt="">
+                                <p>Dynamic</p>
+                            </div>
+                            
+                            <div class="wallpaer-dynamic_detail none">
+                                <div class="wallpaer-dynamic_detail_back">
+                                    <i class="ri-arrow-left-line"></i>
+                                    
+                                </div>
+                                <div class="wallpaer-dynamic_detail_text" >
+                                    <h3>Dynamic</h3>
+                                    
+                                    <div class="wallpaer-dynamic_detail_wallpaper">
+                                        <div id="row1">
+                                            
+                                            <img src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2023/05/motorola-edge-40_personalize_wallpaper_01_compressed.jpg" alt="">
+                                            <img src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2023/05/motorola-edge-40_personalize_wallpaper_02_compressed.jpg" alt="">
+                                            <img src="https://i.pinimg.com/736x/ed/ac/ad/edacad639c0a20d716142ec9b915f7b2.jpg" alt="">
+                                        </div>
+                                        <div id="row2">
+                                            <img src="https://static1.xdaimages.com/wordpress/wp-content/uploads/2023/05/motorola-razr-40-ultra_default_wallpaper_barberry_compressed.jpg" alt="">
+                                            <img src="https://wallpapercg.com/download/motorola-edge-40--14912.jpg" alt="">
+                                            <img src="https://wallpapercg.com/download/motorola-edge-40--14911.jpg" alt="">
+                                        </div>
+                                        <div id="row3">
+                                            <img src="https://www.androidheadlines.com/wp-content/uploads/2023/05/Motorola-Edge-40-wallpaper-device-specific-image-1.jpg" alt="">
+                                            <img src="https://i.pinimg.com/736x/e7/26/3a/e7263affe6a5cae05dabae34695e2eaf.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/01/76/cd/0176cdb89972262efcc7cf39356d95ad.jpg" alt="">
+                                        </div>
+                                        <div id="row4">
+                                            <img src="https://i.pinimg.com/564x/7d/86/04/7d860434a0b1be5e90ebeebc830feb9c.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/68/49/14/68491486a890327a38af325733123b07.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/2c/26/4e/2c264e29eb479b24558168bfac7da0da.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="successMsg none">
+                                    <button>Wallpaper set successfully</button>
+                                </div>
+                                
+                                <div class="wallpaer-dynamic_detail_wallpaper_adv none">
+                                    <img src="" alt="">
+                                    <i class="ri-arrow-left-line"></i>
+                                    
+                                    
+                                    <div class="information_wallpaer-dynamic_detail_wallpaper">
+                                        <p>change wallpaper as you want</p>
+                                    </div>
+                                    <div class="wallpaer-dynamic_detail_wallpaper_adv_setBtn">
+                                        <button>Set wallpaper</button>
+                                    </div>
+
+                                    <div class="setwallpaper_window none">
+                                        <p>Set wallpaper</p>
+                                        <div class="twoOptions">
+                                           <div class="option1">
+                                            <i class="ri-home-4-fill"></i>
+                                              
+                                               <p>Home screen</p>
+                                           
+                                            </div>
+                                            <div class="option2">
+                                                
+                                                
+                                                
+                                                <i class="ri-cellphone-line"></i>
+                                                <p>Lock screen</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="Battery-detail none" id="Battery7">
+                            <div class="Battery-detail_back"  id="Battery7_back_btn">
+                                <i class="ri-arrow-left-line"></i>
+                            </div>
+                            <div class="Battery-detail_text">
+                                <h2>Battery</h2>
+                            </div>
+                        </div>
+
+                        
+                        
+                        <div class="Password-detail none " id="Password8">
+                            <div class="Password-detail_back" id="Password8_back_btn">
+                                <i class="ri-arrow-left-line"></i>
+                            </div>
+                            <div class="Password-detail_text">
+                                <h2>Password</h2>
+                            </div>
+                            <div class="password-detail-change" id="Changepassword9">
+
+                                <p>Change password</p>
+                            </div>
+
+                            <div class="change_password_detail none" >
+                                <div class="change_password_detail_back">
+                                    <i class="ri-arrow-left-line"></i>
+                                    
+                                </div>
+                                <div class="lock">
+                                    <i class="ri-lock-line"></i>
+                                </div>
+                                <div class="change_password_detail_text" >
+
+                                    <h3>Re-enter your password</h3>
+                                </div>
+                                <div class="change_password_detail_text2">
+
+                                    <p>Enter your device password to continue</p>
+                                </div>
+                                <div class="setPassword">
+                                    <input type="password" value="">
+                                </div>
+                                <button class="continue">Continue</button>
+                            </div>
+
+                            <div class="change_password_detail_setPassword none">
+                                <p class="none">must be atleast 4 characters</p>
+                                <i class="ri-arrow-left-line"></i>
+                                    <h3>Set a password</h3>
+                                    <input type="password">
+                                    <button>Set</button>
+                            </div>
+                        </div>
+
+
+                        
+                        
+                        <div class="Special-detail none " id="Special10">
+                            <div class="Special-detail_back" id="Special10_back_btn">
+                                <i class="ri-arrow-left-line"></i>
+                            </div>
+                            <div class="Special-detail_text">
+                                <h2>Special</h2>
+                            </div>
+                        </div>
+
+                        
+                        <div class="Update-detail Update6 none " id="Update11">
+                            <div class="Update-detail_back" id="Update11_back_btn">
+                                <i class="ri-arrow-left-line"></i>
+                            </div>
+                            <div class="Update-detail_text">
+                                <h2>Update</h2>
+                            </div>
+                        </div>
+
+                        
+                        <div class="About-detail none " id="About12">
+                            <div class="About-detail_back">
+                                <i class="ri-arrow-left-line"></i>
+                            </div>
+                            <div class="About-detail_text">
+                                <h2>About</h2>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    
+                </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
